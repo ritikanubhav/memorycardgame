@@ -2,6 +2,10 @@ let hasFlipped=false;
 let firstCard,secondCard;
 let lockboard=false;
 const cards=document.querySelectorAll('.card');
+let attempt=10,score=0;
+const attemptEL=document.querySelector('#attemptel');
+cards.forEach(card => card.addEventListener('click',flipcard));
+const messageEl=document.querySelector('#messageel');
 function flipcard (){
     if(lockboard)return;
     if(this===firstCard)return;
@@ -28,8 +32,9 @@ function checkMatch()
 }
 function disableCard()
 {
-    firstCard.removeEventlistener('click','flipcard');
-    secondCard.removeEventlistener('click','flipcard');
+    firstCard.removeEventListener('click',flipcard);
+    secondCard.removeEventListener('click',flipcard);
+    score++;
     resetBoard();
 }
 function unflipCard()
@@ -45,6 +50,18 @@ function unflipCard()
 function resetBoard(){
     [firstCard,secondCard]=[null,null];
     [hasFlipped,lockboard]=[false,false];
+    attempt--;
+    if(attempt===0||score===6)
+    {
+        lockboard=true;
+        messagePass();
+        messageEl.style.visibility="visible";
+    }
+    attemptEL.innerText =`ATTEMPTS: 0${ attempt}`;
+}
+function messagePass(){
+    if(score===6)   
+        messageEl.textContent ="YOU WIN 🥳😎🥳";
 }
 
 (function shuffle(){
@@ -53,4 +70,3 @@ function resetBoard(){
         card.style.order=random;
     });
 })();
-cards.forEach(card => card.addEventListener('click',flipcard));
