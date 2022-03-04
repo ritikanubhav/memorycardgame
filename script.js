@@ -55,7 +55,6 @@ function resetBoard(){
     {
         lockboard=true;
         messagePass();
-        messageEl.style.visibility="visible";
     }
     attemptEL.innerText =`ATTEMPTS: 0${ attempt}`;
 }
