@@ -56,13 +56,16 @@ p{
     backface-visibility:hidden;
 }
 .front{
-    transform:rotateY(180deg);
-    
+    transform:rotateY(180deg);   
 }
-@media only screen and (max-width:400px)
+@media only screen and (max-width:450px)
 {
     .card{
         width:calc(33.333% - 10px);
         height:calc(25% - 10px);
+    }
+    .memory-card-game{
+        max-width:100vw;
+        height: 80vh;
     }
 }

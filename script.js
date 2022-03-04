@@ -60,10 +60,16 @@ function resetBoard(){
     attemptEL.innerText =`ATTEMPTS: 0${ attempt}`;
 }
 function messagePass(){
-    if(score===6)   
+    if(score===6) 
+    {
         messageEl.textContent ="YOU WIN 🥳😎🥳";
+        return;
+    }  
+    if(attempt===0)
+    {
+        messageEl.textContent="GAME OVER!";
+    }
 }
-
 (function shuffle(){
     cards.forEach(card=>{
         let random=Math.floor(Math.random()*12);
