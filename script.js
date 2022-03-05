@@ -2,7 +2,7 @@ let hasFlipped=false;
 let firstCard,secondCard;
 let lockboard=false;
 const cards=document.querySelectorAll('.card');
-let attempt=10,score=0;
+let attempt=5,score=0;
 const attemptEL=document.querySelector('#attemptel');
 const messageEl=document.querySelector('#messageel');
 const gameEl=document.querySelector('#gameel');
@@ -41,23 +41,23 @@ function disableCard()
 function unflipCard()
 {
     lockboard=true;
+    let heart=document.querySelector(`#heart${attempt}`);
+    attempt--;
     setTimeout(()=>{
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
+        heart.style.visibility = 'hidden';
         resetBoard();
     },800);
-    
 }
 function resetBoard(){
     [firstCard,secondCard]=[null,null];
     [hasFlipped,lockboard]=[false,false];
-    attempt--;
     if(attempt===0||score===6)
     {
         lockboard=true;
         messagePass();
     }
-    attemptEL.innerText =`ATTEMPTS: 0${ attempt}`;
 }
 function messagePass(){
     if(score===6) 
