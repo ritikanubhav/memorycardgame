@@ -4,8 +4,9 @@ let lockboard=false;
 const cards=document.querySelectorAll('.card');
 let attempt=10,score=0;
 const attemptEL=document.querySelector('#attemptel');
-cards.forEach(card => card.addEventListener('click',flipcard));
 const messageEl=document.querySelector('#messageel');
+const gameEl=document.querySelector('#gameel');
+cards.forEach(card => card.addEventListener('click',flipcard));
 function flipcard (){
     if(lockboard)return;
     if(this===firstCard)return;
@@ -61,12 +62,15 @@ function resetBoard(){
 function messagePass(){
     if(score===6) 
     {
-        messageEl.textContent ="YOU WIN 🥳😎🥳";
+        messageEl.textContent ="YOU WIN !!!🥳😎🥳";
+        gameEl.style.opacity=".3";
         return;
     }  
     if(attempt===0)
     {
         messageEl.textContent="GAME OVER!";
+        messageEl.style.transform="translate(-50%,-50%) rotate(-40deg)";
+        gameEl.style.opacity=".2";
     }
 }
 (function shuffle(){

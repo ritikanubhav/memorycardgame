@@ -11,20 +11,26 @@ body{
     flex-direction: column;
 }
 h1,p{
-    margin:auto;
     font-family: Calibri, 'Trebuchet MS', Helvetica, sans-serif;
     color:rgb(4, 90, 160);
 }
 p{
-    font-size:1.3em;
+    color:rgb(16, 6, 158);
+    text-shadow: 0 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size:1.8em;
     font-weight:bold;
-    margin-bottom: 1em;
 }
 h1{
+    margin:auto;
     margin-top:.2em;
 }
 .memory-card-game{
     max-width:100vw;
+    position: relative;
     width:600px;
     height: 90vh;
     margin:auto;
