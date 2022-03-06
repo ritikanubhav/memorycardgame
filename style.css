@@ -13,7 +13,7 @@ body{
     display:flex;
     margin:auto;
     margin-top:8px;
-    height:95vh;
+    height:92vh;
     border:solid 3px rgb(193, 254, 253);
     flex-direction: column;
 }
@@ -22,6 +22,7 @@ body{
     color:rgb(199, 30, 30);
     font-size:1.8em;
     font-weight: bold;
+    text-align: center;
 }
 .lives p{
     color:rgb(68, 62, 165);

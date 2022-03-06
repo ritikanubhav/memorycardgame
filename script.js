@@ -70,7 +70,7 @@ function messagePass(){
         return;
     }  
     messageEl.textContent="GAME OVER!";
-    attemptEl.innerHTML =`<p>BETTTER LUCK! NEXT TIME</p>`;
+    attemptEl.innerHTML =`<p>HARD LUCK!</p>`;
 }
 (function shuffle(){
     cards.forEach(card=>{
