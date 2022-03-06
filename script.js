@@ -3,8 +3,9 @@ let firstCard,secondCard;
 let lockboard=false;
 const cards=document.querySelectorAll('.card');
 let attempt=5,score=0;
-const attemptEL=document.querySelector('#attemptel');
+const attemptEl=document.querySelector('#attemptel');
 const messageEl=document.querySelector('#messageel');
+const newGameBtn=document.querySelector('#newgamebtn');
 const gameEl=document.querySelector('#gameel');
 cards.forEach(card => card.addEventListener('click',flipcard));
 function flipcard (){
@@ -46,9 +47,10 @@ function unflipCard()
     setTimeout(()=>{
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
-        heart.style.visibility = 'hidden';
+        heart.style= `transform:scale(0) rotate(.5turn)`;
+        heart.style.transition='all .5s';
         resetBoard();
-    },800);
+    },700);
 }
 function resetBoard(){
     [firstCard,secondCard]=[null,null];
@@ -56,22 +58,19 @@ function resetBoard(){
     if(attempt===0||score===6)
     {
         lockboard=true;
-        messagePass();
+        setTimeout(messagePass,500);
     }
 }
 function messagePass(){
+    gameEl.style.opacity=".2";
+    newGameBtn.style.display='initial';
     if(score===6) 
     {
         messageEl.textContent ="YOU WIN !!!🥳😎🥳";
-        gameEl.style.opacity=".3";
         return;
     }  
-    if(attempt===0)
-    {
-        messageEl.textContent="GAME OVER!";
-        messageEl.style.transform="translate(-50%,-50%) rotate(-40deg)";
-        gameEl.style.opacity=".2";
-    }
+    messageEl.textContent="GAME OVER!";
+    attemptEl.innerHTML =`<p>BETTTER LUCK! NEXT TIME</p>`;
 }
 (function shuffle(){
     cards.forEach(card=>{
