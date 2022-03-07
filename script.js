@@ -67,7 +67,7 @@ function messagePass(){
     if(score===6) 
     {
         attemptEl.innerHTML =`<p>YOU WIN !!!🥳😎🥳`;
-        msgImg.src='images/gif/msgimg.gif';
+        msgImg.src='images/gif/happy.gif';
         return;
     }  
     attemptEl.innerHTML =`<p>GAME OVER!</p>`;
