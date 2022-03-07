@@ -84,6 +84,7 @@ body{
     color:rgb(68, 62, 165);
     background-color:rgb(210, 218, 218);
     border:solid 3px rgb(68, 62, 165);
+    margin:8px;
     border-radius:7px;
 }
 .message button:active{

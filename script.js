@@ -2,11 +2,11 @@ let hasFlipped=false;
 let firstCard,secondCard;
 let lockboard=false;
 const cards=document.querySelectorAll('.card');
-let attempt=5,score=0;
+let attempt=5,score=6;
 const attemptEl=document.querySelector('#attemptel');
-const messageEl=document.querySelector('#messageel');
 const newGameBtn=document.querySelector('#newgamebtn');
 const gameEl=document.querySelector('#gameel');
+const msgImg=document.querySelector('#msgimg');
 cards.forEach(card => card.addEventListener('click',flipcard));
 function flipcard (){
     if(lockboard)return;
@@ -66,11 +66,12 @@ function messagePass(){
     newGameBtn.style.display='initial';
     if(score===6) 
     {
-        messageEl.textContent ="YOU WIN !!!🥳😎🥳";
+        attemptEl.innerHTML =`<p>YOU WIN !!!🥳😎🥳`;
+        msgImg.src='images/gif/msgimg.gif';
         return;
     }  
-    messageEl.textContent="GAME OVER!";
-    attemptEl.innerHTML =`<p>HARD LUCK!</p>`;
+    attemptEl.innerHTML =`<p>GAME OVER!</p>`;
+    msgImg.src='images/gif/msgimg.gif';
 }
 (function shuffle(){
     cards.forEach(card=>{
