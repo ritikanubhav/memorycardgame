@@ -2,12 +2,60 @@ let hasFlipped=false;
 let firstCard,secondCard;
 let lockboard=false;
 const cards=document.querySelectorAll('.card');
-let attempt=5,score=6;
+const front=document.querySelectorAll('.front');
+const fronts=Array.from(front);
+const backs=document.querySelectorAll('.back');
+let attempt=5,score=0;
 const attemptEl=document.querySelector('#attemptel');
 const newGameBtn=document.querySelector('#newgamebtn');
 const gameEl=document.querySelector('#gameel');
 const msgImg=document.querySelector('#msgimg');
 cards.forEach(card => card.addEventListener('click',flipcard));
+const imagesForActress=[
+    "images/sunnyleone.jpg",
+    "images/disha.jpg",
+    "images/katrina.jpg",
+    "images/kiara.jpg",
+    "images/kiara2.jpg",
+    "images/tamannah.jpg",
+    "images/nora1.jpg",
+    "images/nora2.jpg",
+    "images/rashmika.jpg",
+    "images/rashmika2.jpg",
+    "images/jacquie1.jpg",
+    "images/jacquie2.jpg",
+    "images/shraddha.jpg",
+    "images/cover.jpg"
+];
+
+let imgInGame =[];
+(function randomImageSet(){
+    let arr= [];
+    while(arr.length < 6){
+        let r = Math.floor(Math.random() * 13);
+        if(arr.indexOf(r) === -1) 
+        {
+            arr.push(r);
+            imgInGame.push(imagesForActress[r]);
+        }
+    }
+    backs.forEach(back=>{
+        back.src=imagesForActress[13];        
+    });
+    for(let i=0; i<6;i++)
+    {
+        fronts[i].src=imgInGame[i];
+        fronts[11-i].src=imgInGame[i];
+    }
+})();
+
+(function shuffle(){
+    cards.forEach(card=>{
+        let random=Math.floor(Math.random()*12);
+        card.style.order=random;
+    });
+})();
+
 function flipcard (){
     if(lockboard)return;
     if(this===firstCard)return;
@@ -73,9 +121,6 @@ function messagePass(){
     attemptEl.innerHTML =`<p>GAME OVER!</p>`;
     msgImg.src='images/gif/msgimg.gif';
 }
-(function shuffle(){
-    cards.forEach(card=>{
-        let random=Math.floor(Math.random()*12);
-        card.style.order=random;
-    });
-})();
+newGameBtn.addEventListener('click',()=>{
+    window.location.reload();
+});
