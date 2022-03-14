@@ -134,7 +134,7 @@ function messagePass(){
     newGameBtn.style.display='initial';
     if(score===6) 
     {
-        attemptEl.innerHTML =`<p>YOU WIN !!!🥳😎🥳`;
+        attemptEl.innerHTML =`<p>YOU WIN !!!`;
         msgImg.src='images/gif/happy.gif';
         return;
     }  

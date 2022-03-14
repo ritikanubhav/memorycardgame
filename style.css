@@ -6,21 +6,28 @@
 body{
     font-family: Calibri, 'Trebuchet MS', Helvetica, sans-serif;
     background-color:rgb(143, 204, 253) ;
-    flex-direction: column;
 }
-.gamezone{
+.uppersection{
+    display:flex;
+}
+.gamezone {
     display:flex;
     margin:auto;
     position:relative;
-    height:92vh;
     flex-direction: column;
+}
+.lowersection{
+    height:85vh;
 }
 #menuel{
     cursor: pointer;
+    position:fixed;
+    z-index: 2;
+    display: flex;
 }
 .menu{
     position:absolute;
-    top:30px;
+    top:0px;
     transform:translate(-200%); 
     display:flex;
     flex-direction:column;
@@ -28,16 +35,24 @@ body{
     z-index: 1;
     max-width:300px;
     width:40%;
-    height:calc(100% - 30px);
-    background-color:rgba(193, 254, 253,.4);
+    height:100%; 
+    background-color:rgba(193, 254, 253,.5);
     border-radius: 5PX;
     font-size: 1.5em;
-    color:rgb(43, 135, 177);
+    font-weight: bold;
+    color:rgb(4, 93, 134);
     overflow: hidden;
 }
-.menu a{
-    margin-bottom:1.3em;
-    margin-left: 1.5em;
+.menu div{
+    margin-bottom:1em;
+    margin-left: 2em;
+    cursor: pointer;
+    display:flex;
+    flex-direction: column;
+}
+.menu p{
+    margin-bottom:0.2em;
+    margin-left: 1.3em;
     cursor: pointer;
 }
 .lives{
@@ -123,7 +138,6 @@ body{
         transform-origin: 50% -200%;
         transform:scale(0) rotate(12turn);
     }
-    
 }
 @media only screen and (max-width:450px)
 {
@@ -131,15 +145,11 @@ body{
         width:calc(33.333% - 10px);
         height:calc(25% - 10px);
     }
-    .gamezone{
-        border:none;
-        margin-top:0;
-    }
     .menu{
         font-size:1.4em;
-        min-width: 50%;
+        min-width: 60vw;
     }
-    .menu a{
-        margin-left:10px;
+    .menu div{
+        margin-left:1.7em;
     }
 }

@@ -11,76 +11,91 @@
     <script src="https://kit.fontawesome.com/b824f1f94d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="gamezone">
-        <i class="material-icons" id="menuel" style="font-size:35px;">menu</i>
+    <div class="uppersection">
         <div class="menu-container">
+            <span class="material-icons" id="menuel" style="font-size:35px;">menu</span>
             <div class="menu" id="menulist">
-                <a>LEVEL</a>
-                <a>THEME</a>
-                <a id="newgamemenu">NEW GAME</a>
+                <p><span class="material-icons" style="font-size:20px;font-weight:bold">check_circle_outline</span> LEVEL</p>
+                <div id="level">
+                    <a>I<span class="material-icons" style="font-size:20px;font-weight:bold">done</span></a>
+                    <a>II<span class="material-icons" style="font-size:20px;font-weight:bold">done</span></a>
+                    <a>III<span class="material-icons" style="font-size:20px;font-weight:bold">done</span></a>
+                </div>
+                <p><span class="material-icons" style="font-size:20px;">rocket_launch</span> THEME<span class="material-icons" style="font-size:20px;font-weight:bold">expand_more</span></p>
+                <div id="theme">
+                    <a>Actress<span class="material-icons" style="font-size:20px;font-weight:bold">done</span></a>
+                    <a>Anime<span class="material-icons" style="font-size:20px;font-weight:bold">done</span></a>
+                    <a>Superheroes<span class="material-icons" style="font-size:20px;font-weight:bold">done</span></a>
+                </div>
+                <p id="newgamemenu"><span class="material-icons"style="font-size:20px;">sports_esports</span> NEW GAME</p>
             </div>
         </div>
-        <div class="lives"  id="attemptel">
-            <i class="fa-solid fa-heart" id="heart1"></i>
-            <i class="fa-solid fa-heart" id="heart2"></i>
-            <i class="fa-solid fa-heart" id="heart3"></i>
-            <i class="fa-solid fa-heart" id="heart4"></i>
-            <i class="fa-solid fa-heart" id="heart5"></i>
+        <div class="gamezone">
+            <h1 id="title">MEMORY CARD GAME</h1>
+            <div class="lives"  id="attemptel">
+                <i class="fa-solid fa-heart" id="heart1"></i>
+                <i class="fa-solid fa-heart" id="heart2"></i>
+                <i class="fa-solid fa-heart" id="heart3"></i>
+                <i class="fa-solid fa-heart" id="heart4"></i>
+                <i class="fa-solid fa-heart" id="heart5"></i>
+            </div>
         </div>
+    </div>
+    <div class="gamezone lowersection">
         <section id ="gameel" class="memory-card-game">
-                <div class="card" data-framework="1">
-                    <img class="front" alt="card1"/>
-                    <img class="back"  alt="card1"/>
-                </div>
-                <div class="card" data-framework="2">
-                    <img class="front" alt="card2"/>
-                    <img class="back"  alt="card2"/>
-                </div>
-                <div class="card" data-framework="3">
-                    <img class="front"  alt="card3"/>
-                    <img class="back"  alt="card3"/>
-                </div>
-                <div class="card" data-framework="4">
-                    <img class="front" alt="card4"/>
-                    <img class="back"  alt="card4"/>
-                </div>
-                <div class="card" data-framework="5">
-                    <img class="front"  alt="card5"/>
-                    <img class="back"  alt="card5"/>
-                </div>
-                <div class="card" data-framework="6">
-                    <img class="front"  alt="card6"/>
-                    <img class="back"  alt="card6"/>
-                </div>
-                <div class="card" data-framework="6">
-                    <img class="front"  alt="card6"/>
-                    <img class="back" alt="card6"/>
-                </div>
-                <div class="card" data-framework="5">
-                    <img class="front"  alt="card5"/>
-                    <img class="back"  alt="card5"/>
-                </div>
-                <div class="card" data-framework="4">
-                    <img class="front"  alt="card4"/>
-                    <img class="back" alt="card4"/>
-                </div>
-                <div class="card" data-framework="3">
-                    <img class="front"  alt="card3"/>
-                    <img class="back"  alt="card3"/>
-                </div>
-                <div class="card" data-framework="2">
-                    <img class="front"  alt="card2"/>
-                    <img class="back"  alt="card2"/>
-                </div>
-                <div class="card" data-framework="1">
-                    <img class="front" alt="card1"/>
-                    <img class="back" alt="card1"/>
-                </div>
-            </section>
-            <div class="message">
-                <img id="msgimg" src=""/>
-                <button id="newgamebtn">NEW GAME</button>
+            <div class="card" data-framework="1">
+                <img class="front" alt="card1"/>
+                <img class="back"  alt="card1"/>
             </div>
+            <div class="card" data-framework="2">
+                <img class="front" alt="card2"/>
+                <img class="back"  alt="card2"/>
+            </div>
+            <div class="card" data-framework="3">
+                <img class="front"  alt="card3"/>
+                <img class="back"  alt="card3"/>
+            </div>
+            <div class="card" data-framework="4">
+                <img class="front" alt="card4"/>
+                <img class="back"  alt="card4"/>
+            </div>
+            <div class="card" data-framework="5">
+                <img class="front"  alt="card5"/>
+                <img class="back"  alt="card5"/>
+            </div>
+            <div class="card" data-framework="6">
+                <img class="front"  alt="card6"/>
+                <img class="back"  alt="card6"/>
+            </div>
+            <div class="card" data-framework="6">
+                <img class="front"  alt="card6"/>
+                <img class="back" alt="card6"/>
+            </div>
+            <div class="card" data-framework="5">
+                <img class="front"  alt="card5"/>
+                <img class="back"  alt="card5"/>
+            </div>
+            <div class="card" data-framework="4">
+                <img class="front"  alt="card4"/>
+                <img class="back" alt="card4"/>
+            </div>
+            <div class="card" data-framework="3">
+                <img class="front"  alt="card3"/>
+                <img class="back"  alt="card3"/>
+            </div>
+            <div class="card" data-framework="2">
+                <img class="front"  alt="card2"/>
+                <img class="back"  alt="card2"/>
+            </div>
+            <div class="card" data-framework="1">
+                <img class="front" alt="card1"/>
+                <img class="back" alt="card1"/>
+            </div>
+        </section>
+    </div>
+    <div class="message">
+        <img id="msgimg" src=""/>
+        <button id="newgamebtn">NEW GAME</button>
     </div>
 </body>
 </html>
