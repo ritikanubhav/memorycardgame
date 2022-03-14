@@ -17,18 +17,20 @@ let menuOpen=false;
 menuEl.addEventListener('click', function()
 {
     if(menuOpen===false)
-    {
-        menuOpen=true;
-        menuList.style= `transform:translate(0%)`;
-        menuList.style.transition='all .5s';
-    }
-    else{
-        menuOpen=false;
-        menuList.style= `transform:translate(-200%)`;
-        menuList.style.transition='all .5s linear';
-    }
+        openMenu();
+    else
+        closeMenu();
 })
-cards.forEach(card => card.addEventListener('click',flipcard));
+function closeMenu(){
+    menuOpen=false;
+    menuList.style= `transform:translate(-200%)`;
+    menuList.style.transition='all .5s linear';
+}
+function openMenu(){
+    menuOpen=true;
+    menuList.style= `transform:translate(0%)`;
+    menuList.style.transition='all .5s';
+}
 const imagesForActress=[
     "images/sunnyleone.jpg",
     "images/disha.jpg",
@@ -45,7 +47,6 @@ const imagesForActress=[
     "images/shraddha.jpg",
     "images/cover.jpg"
 ];
-
 let imgInGame =[];
 (function randomImageSet(){
     let arr= [];
@@ -73,7 +74,7 @@ let imgInGame =[];
         card.style.order=random;
     });
 })();
-
+cards.forEach(card => card.addEventListener('click',flipcard));
 function flipcard (){
     if(lockboard)return;
     if(this===firstCard)return;
