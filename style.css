@@ -29,10 +29,10 @@ body{
     max-width:300px;
     width:40%;
     height:calc(100% - 30px);
-    background-color:rgba(193, 254, 253,.5);
+    background-color:rgba(193, 254, 253,.4);
     border-radius: 5PX;
     font-size: 1.5em;
-    color:rgb(18, 55, 85);
+    color:rgb(43, 135, 177);
     overflow: hidden;
 }
 .menu a{
@@ -109,14 +109,21 @@ body{
     padding:10px;
     font-size:.6em;
     font-weight:bold;
-    color:rgb(50, 43, 177);
-    background-color:rgb(210, 218, 218);
-    border:solid 3px rgb(50, 43, 177);;
+    color:rgb(43, 135, 177);
+    background-color:white;
+    border:solid 3px rgb(43, 135, 177);
     margin:35px;
     border-radius:7px;
 }
 .message button:active{
     background-color:rgb(180, 185, 185);
+}
+@keyframes heartattack {
+    100%{
+        transform-origin: 50% -200%;
+        transform:scale(0) rotate(12turn);
+    }
+    
 }
 @media only screen and (max-width:450px)
 {
@@ -130,6 +137,7 @@ body{
     }
     .menu{
         font-size:1.4em;
+        min-width: 50%;
     }
     .menu a{
         margin-left:10px;

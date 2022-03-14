@@ -74,7 +74,9 @@ let imgInGame =[];
         card.style.order=random;
     });
 })();
+
 cards.forEach(card => card.addEventListener('click',flipcard));
+
 function flipcard (){
     if(lockboard)return;
     if(this===firstCard)return;
@@ -114,8 +116,7 @@ function unflipCard()
     setTimeout(()=>{
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
-        heart.style= `transform:scale(0) rotate(.5turn)`;
-        heart.style.transition='all .5s';
+        heart.style.animation="heartattack 1s forwards";
         resetBoard();
     },700);
 }
@@ -125,7 +126,7 @@ function resetBoard(){
     if(attempt===0||score===6)
     {
         lockboard=true;
-        setTimeout(messagePass,500);
+        setTimeout(messagePass,1000);
     }
 }
 function messagePass(){
