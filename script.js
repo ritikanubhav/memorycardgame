@@ -8,8 +8,26 @@ const backs=document.querySelectorAll('.back');
 let attempt=5,score=0;
 const attemptEl=document.querySelector('#attemptel');
 const newGameBtn=document.querySelector('#newgamebtn');
+const newGameMenu=document.querySelector('#newgamemenu');
 const gameEl=document.querySelector('#gameel');
 const msgImg=document.querySelector('#msgimg');
+const menuEl=document.querySelector('#menuel');
+const menuList=document.querySelector('#menulist');
+let menuOpen=false;
+menuEl.addEventListener('click', function()
+{
+    if(menuOpen===false)
+    {
+        menuOpen=true;
+        menuList.style= `transform:translate(0%)`;
+        menuList.style.transition='all .5s';
+    }
+    else{
+        menuOpen=false;
+        menuList.style= `transform:translate(-200%)`;
+        menuList.style.transition='all .5s linear';
+    }
+})
 cards.forEach(card => card.addEventListener('click',flipcard));
 const imagesForActress=[
     "images/sunnyleone.jpg",
@@ -122,5 +140,8 @@ function messagePass(){
     msgImg.src='images/gif/msgimg.gif';
 }
 newGameBtn.addEventListener('click',()=>{
+    window.location.reload();
+});
+newGameMenu.addEventListener('click',()=>{
     window.location.reload();
 });

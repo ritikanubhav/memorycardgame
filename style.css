@@ -4,7 +4,6 @@
     box-sizing:border-box;
 }
 body{
-    display:flex;
     font-family: Calibri, 'Trebuchet MS', Helvetica, sans-serif;
     background-color:rgb(143, 204, 253) ;
     flex-direction: column;
@@ -12,10 +11,34 @@ body{
 .gamezone{
     display:flex;
     margin:auto;
-    margin-top:8px;
+    position:relative;
     height:92vh;
-    border:solid 3px rgb(193, 254, 253);
     flex-direction: column;
+}
+#menuel{
+    cursor: pointer;
+}
+.menu{
+    position:absolute;
+    top:30px;
+    transform:translate(-200%); 
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    z-index: 1;
+    max-width:300px;
+    width:40%;
+    height:calc(100% - 30px);
+    background-color:rgba(193, 254, 253,.5);
+    border-radius: 5PX;
+    font-size: 1.5em;
+    color:rgb(18, 55, 85);
+    overflow: hidden;
+}
+.menu a{
+    margin-bottom:1.3em;
+    margin-left: 1.5em;
+    cursor: pointer;
 }
 .lives{
     margin:.1em auto .1em;
@@ -38,6 +61,7 @@ body{
     perspective: 1000px;
 }
 .card{
+    cursor: pointer;
     width:calc(25% - 10px);
     height:calc(33.333% - 10px);
     position: relative;
@@ -103,5 +127,11 @@ body{
     .gamezone{
         border:none;
         margin-top:0;
+    }
+    .menu{
+        font-size:1.4em;
+    }
+    .menu a{
+        margin-left:10px;
     }
 }
