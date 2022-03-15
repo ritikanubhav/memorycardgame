@@ -7,6 +7,8 @@ const fronts=Array.from(front);
 const backs=document.querySelectorAll('.back');
 let attempt=5,score=0;
 const attemptEl=document.querySelector('#attemptel');
+const levels=document.querySelectorAll('.level');
+const themes=document.querySelectorAll('.theme');
 const newGameBtn=document.querySelector('#newgamebtn');
 const newGameMenu=document.querySelector('#newgamemenu');
 const gameEl=document.querySelector('#gameel');
@@ -140,6 +142,31 @@ function messagePass(){
     }  
     attemptEl.innerHTML =`<p>GAME OVER!</p>`;
     msgImg.src='images/gif/msgimg.gif';
+}
+
+levels.forEach(level=> level.addEventListener('dblclick',levelSetup));
+
+function levelSetup() {
+    for(let i=0; i<levels.length; i++) {
+        if(levels[i]===this) {
+            document.querySelector(`#level${i+1}`).style.display = 'inline-block';
+        }
+        else
+            document.querySelector(`#level${i+1}`).style.display = 'none';
+    }
+}
+
+themes.forEach(theme=> theme.addEventListener('dblclick',themeSetup));
+
+function themeSetup() {
+    for(let i=0; i<themes.length; i++) {
+        if(themes[i]===this) {
+            document.querySelector(`#theme${i+1}`).style.display ='inline-block';
+        }
+        else
+            document.querySelector(`#theme${i+1}`).style.display ='none';
+        console.log(this);
+    }
 }
 newGameBtn.addEventListener('click',()=>{
     window.location.reload();
