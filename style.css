@@ -63,6 +63,9 @@ body{
     font-weight: bold;
     text-align: center;
 }
+.lives i{
+    margin:3px;
+}
 .lives p{
     color:rgb(2, 73, 105);
 }

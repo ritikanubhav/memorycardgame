@@ -5,7 +5,7 @@ const cards=document.querySelectorAll('.card');
 const front=document.querySelectorAll('.front');
 const fronts=Array.from(front);
 const backs=document.querySelectorAll('.back');
-let attempt=5,score=0;
+let attempt=5,score=0,theme=1;
 const attemptEl=document.querySelector('#attemptel');
 const levels=document.querySelectorAll('.level');
 const themes=document.querySelectorAll('.theme');
@@ -15,6 +15,7 @@ const gameEl=document.querySelector('#gameel');
 const msgImg=document.querySelector('#msgimg');
 const menuEl=document.querySelector('#menuel');
 const menuList=document.querySelector('#menulist');
+
 let menuOpen=false;
 menuEl.addEventListener('click', function()
 {
@@ -49,8 +50,9 @@ const imagesForActress=[
     "images/shraddha.jpg",
     "images/cover.jpg"
 ];
+
 let imgInGame =[];
-(function randomImageSet(){
+function randomImageSet(){
     let arr= [];
     while(arr.length < 6){
         let r = Math.floor(Math.random() * 13);
@@ -68,14 +70,71 @@ let imgInGame =[];
         fronts[i].src=imgInGame[i];
         fronts[11-i].src=imgInGame[i];
     }
-})();
+}
 
-(function shuffle(){
+function shuffle(){
+    randomImageSet();
     cards.forEach(card=>{
         let random=Math.floor(Math.random()*12);
         card.style.order=random;
     });
-})();
+}
+shuffle();
+
+function resetBoard(){
+    [firstCard,secondCard]=[null,null];
+    [hasFlipped,lockboard]=[false,false];
+    if(attempt===0||score===6)
+    {
+        lockboard=true;
+        setTimeout(messagePass,1000);
+    }
+}
+
+
+function newGame()
+{
+    resetBoard();
+    cards.forEach(card => card.addEventListener('click',flipcard));
+    cards.forEach(card => card.classList.remove('flip'));
+    setTimeout(shuffle,700);
+}
+
+
+levels.forEach(level=> level.addEventListener('click',levelSetup));
+
+
+function levelSetup() {
+    for(let i=0; i<levels.length; i++) {
+        if(levels[i]===this) {
+            document.querySelector(`#level${i+1}`).style.display = 'inline-block';
+            attempt=6-i;
+            let hearts=``;
+            for(let j=0; j<attempt; j++) {
+                hearts+=`<i class="fa-solid fa-heart" id="heart${j+1}"></i>`
+            }   
+            attemptEl.innerHTML=hearts;
+        }
+        else
+            document.querySelector(`#level${i+1}`).style.display = 'none';
+    }
+    newGame();
+}
+
+
+themes.forEach(theme=> theme.addEventListener('click',themeSetup));
+
+
+function themeSetup() {
+    for(let i=0; i<themes.length; i++) {
+        if(themes[i]===this) {
+            document.querySelector(`#theme${i+1}`).style.display ='inline-block';
+        }
+        else
+            document.querySelector(`#theme${i+1}`).style.display ='none';
+    }
+}
+
 
 cards.forEach(card => card.addEventListener('click',flipcard));
 
@@ -122,15 +181,7 @@ function unflipCard()
         resetBoard();
     },700);
 }
-function resetBoard(){
-    [firstCard,secondCard]=[null,null];
-    [hasFlipped,lockboard]=[false,false];
-    if(attempt===0||score===6)
-    {
-        lockboard=true;
-        setTimeout(messagePass,1000);
-    }
-}
+
 function messagePass(){
     gameEl.style.opacity=".2";
     newGameBtn.style.display='initial';
@@ -144,30 +195,6 @@ function messagePass(){
     msgImg.src='images/gif/msgimg.gif';
 }
 
-levels.forEach(level=> level.addEventListener('click',levelSetup));
-
-function levelSetup() {
-    for(let i=0; i<levels.length; i++) {
-        if(levels[i]===this) {
-            document.querySelector(`#level${i+1}`).style.display = 'inline-block';
-        }
-        else
-            document.querySelector(`#level${i+1}`).style.display = 'none';
-    }
-}
-
-themes.forEach(theme=> theme.addEventListener('click',themeSetup));
-
-function themeSetup() {
-    for(let i=0; i<themes.length; i++) {
-        if(themes[i]===this) {
-            document.querySelector(`#theme${i+1}`).style.display ='inline-block';
-        }
-        else
-            document.querySelector(`#theme${i+1}`).style.display ='none';
-        console.log(this);
-    }
-}
 newGameBtn.addEventListener('click',()=>{
     window.location.reload();
 });
