@@ -144,7 +144,7 @@ function messagePass(){
     msgImg.src='images/gif/msgimg.gif';
 }
 
-levels.forEach(level=> level.addEventListener('dblclick',levelSetup));
+levels.forEach(level=> level.addEventListener('click',levelSetup));
 
 function levelSetup() {
     for(let i=0; i<levels.length; i++) {
@@ -156,7 +156,7 @@ function levelSetup() {
     }
 }
 
-themes.forEach(theme=> theme.addEventListener('dblclick',themeSetup));
+themes.forEach(theme=> theme.addEventListener('click',themeSetup));
 
 function themeSetup() {
     for(let i=0; i<themes.length; i++) {
