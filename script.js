@@ -95,7 +95,6 @@ function randomImageSet(){
     backs.forEach(back=>{
         back.src=images[13+(14*theme)];       
     });
-    console.log(imgInGame)
     for(let i=0; i<6;i++)
     {
         fronts[i].src=imgInGame[i];
