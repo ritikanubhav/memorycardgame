@@ -5,7 +5,7 @@ const cards=document.querySelectorAll('.card');
 const front=document.querySelectorAll('.front');
 const fronts=Array.from(front);
 const backs=document.querySelectorAll('.back');
-let attempt=5,score=0,theme=1;
+let attempt=5,score=0,theme=0;
 const attemptEl=document.querySelector('#attemptel');
 const levels=document.querySelectorAll('.level');
 const themes=document.querySelectorAll('.theme');
@@ -34,7 +34,7 @@ function openMenu(){
     menuList.style= `transform:translate(0%)`;
     menuList.style.transition='all .5s';
 }
-const imagesForActress=[
+const images=[
     "images/sunnyleone.jpg",
     "images/disha.jpg",
     "images/katrina.jpg",
@@ -48,23 +48,54 @@ const imagesForActress=[
     "images/jacquie1.jpg",
     "images/jacquie2.jpg",
     "images/shraddha.jpg",
-    "images/cover.jpg"
+    "images/cover.jpg", 
+    // next theme image set
+    "images/antman.jpg",
+    "images/batman.jpg",
+    "images/blackwidow.jpg",
+    "images/bpanther.jpg",
+    "images/drstrange.jpg",
+    "images/hulk.jpg",
+    "images/ironman.jpg",
+    "images/spiderman.jpg",
+    "images/superman.jpg",
+    "images/thor.jpg",
+    "images/captainamerica.png",
+    "images/wonderwoman.jpg",
+    "images/captainamerica.png",
+    "images/herocover.jpg",
+    // next  theme image set 
+    "images/antman.jpg",
+    "images/batman.jpg",
+    "images/blackwidow.jpg",
+    "images/bpanther.jpg",
+    "images/drstrange.jpg",
+    "images/hulk.jpg",
+    "images/ironman.jpg",
+    "images/spiderman.jpg",
+    "images/superman.jpg",
+    "images/thor.jpg",
+    "images/captainamerica.png",
+    "images/wonderwoman.jpg",
+    "images/captainamerica.png",
+    "images/herocover.jpg"
 ];
 
-let imgInGame =[];
 function randomImageSet(){
     let arr= [];
+    let imgInGame =[];
     while(arr.length < 6){
-        let r = Math.floor(Math.random() * 13);
+        let r = (Math.floor(Math.random() * 13))+(14*theme);
         if(arr.indexOf(r) === -1) 
         {
             arr.push(r);
-            imgInGame.push(imagesForActress[r]);
+            imgInGame.push(images[r]);
         }
     }
     backs.forEach(back=>{
-        back.src=imagesForActress[13];        
+        back.src=images[13+(14*theme)];       
     });
+    console.log(imgInGame)
     for(let i=0; i<6;i++)
     {
         fronts[i].src=imgInGame[i];
@@ -103,7 +134,6 @@ function newGame()
 
 levels.forEach(level=> level.addEventListener('click',levelSetup));
 
-
 function levelSetup() {
     for(let i=0; i<levels.length; i++) {
         if(levels[i]===this) {
@@ -124,15 +154,16 @@ function levelSetup() {
 
 themes.forEach(theme=> theme.addEventListener('click',themeSetup));
 
-
 function themeSetup() {
     for(let i=0; i<themes.length; i++) {
         if(themes[i]===this) {
+            theme=i;
             document.querySelector(`#theme${i+1}`).style.display ='inline-block';
         }
         else
             document.querySelector(`#theme${i+1}`).style.display ='none';
     }
+    newGame();
 }
 
 
