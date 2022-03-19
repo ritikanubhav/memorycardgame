@@ -5,7 +5,6 @@ const cards=document.querySelectorAll('.card');
 const front=document.querySelectorAll('.front');
 const fronts=Array.from(front);
 const backs=document.querySelectorAll('.back');
-let attempt=5,score=0,theme=0;
 const attemptEl=document.querySelector('#attemptel');
 const levels=document.querySelectorAll('.level');
 const themes=document.querySelectorAll('.theme');
@@ -15,7 +14,54 @@ const gameEl=document.querySelector('#gameel');
 const msgImg=document.querySelector('#msgimg');
 const menuEl=document.querySelector('#menuel');
 const menuList=document.querySelector('#menulist');
-
+let level=+(localStorage.getItem('level')),score=0,theme=+(localStorage.getItem('theme'));
+let attempt=6-level;
+const images=[
+    ["images/sunnyleone.jpg",
+     "images/disha.jpg",
+     "images/katrina.jpg",
+     "images/kiara.jpg",
+     "images/kiara2.jpg",
+     "images/tamannah.jpg",
+     "images/nora1.jpg",
+     "images/nora2.jpg",
+     "images/rashmika.jpg",
+     "images/rashmika2.jpg",
+     "images/jacquie1.jpg",
+     "images/jacquie2.jpg",
+     "images/shraddha.jpg",
+     "images/cover.jpg"],
+     // next theme image set
+     ["images/antman.jpg",
+     "images/batman.jpg",
+     "images/blackwidow.jpg",
+     "images/bpanther.jpg",
+     "images/drstrange.jpg",
+     "images/hulk.jpg",
+     "images/ironman.jpg",
+     "images/spiderman.jpg",
+     "images/superman.jpg",
+     "images/thor.jpg",
+     "images/captainamerica.png",
+     "images/wonderwoman.jpg",
+     "images/captainamerica.png",
+     "images/herocover.jpg"],
+     // next  theme image set 
+     ["images/antman.jpg",
+     "images/batman.jpg",
+     "images/blackwidow.jpg",
+     "images/bpanther.jpg",
+     "images/drstrange.jpg",
+     "images/hulk.jpg",
+     "images/ironman.jpg",
+     "images/spiderman.jpg",
+     "images/superman.jpg",
+     "images/thor.jpg",
+     "images/captainamerica.png",
+     "images/wonderwoman.jpg",
+     "images/captainamerica.png",
+     "images/herocover.jpg"]
+ ];
 let menuOpen=false;
 menuEl.addEventListener('click', function()
 {
@@ -26,75 +72,68 @@ menuEl.addEventListener('click', function()
 })
 function closeMenu(){
     menuOpen=false;
+    menuEl.innerText="menu";
     menuList.style= `transform:translate(-200%)`;
     menuList.style.transition='all .5s linear';
+    lockboard=false;
 }
 function openMenu(){
+    lockboard=true;
     menuOpen=true;
+    menuEl.innerText="close";
     menuList.style= `transform:translate(0%)`;
     menuList.style.transition='all .5s';
 }
-const images=[
-    "images/sunnyleone.jpg",
-    "images/disha.jpg",
-    "images/katrina.jpg",
-    "images/kiara.jpg",
-    "images/kiara2.jpg",
-    "images/tamannah.jpg",
-    "images/nora1.jpg",
-    "images/nora2.jpg",
-    "images/rashmika.jpg",
-    "images/rashmika2.jpg",
-    "images/jacquie1.jpg",
-    "images/jacquie2.jpg",
-    "images/shraddha.jpg",
-    "images/cover.jpg", 
-    // next theme image set
-    "images/antman.jpg",
-    "images/batman.jpg",
-    "images/blackwidow.jpg",
-    "images/bpanther.jpg",
-    "images/drstrange.jpg",
-    "images/hulk.jpg",
-    "images/ironman.jpg",
-    "images/spiderman.jpg",
-    "images/superman.jpg",
-    "images/thor.jpg",
-    "images/captainamerica.png",
-    "images/wonderwoman.jpg",
-    "images/captainamerica.png",
-    "images/herocover.jpg",
-    // next  theme image set 
-    "images/antman.jpg",
-    "images/batman.jpg",
-    "images/blackwidow.jpg",
-    "images/bpanther.jpg",
-    "images/drstrange.jpg",
-    "images/hulk.jpg",
-    "images/ironman.jpg",
-    "images/spiderman.jpg",
-    "images/superman.jpg",
-    "images/thor.jpg",
-    "images/captainamerica.png",
-    "images/wonderwoman.jpg",
-    "images/captainamerica.png",
-    "images/herocover.jpg"
-];
+document.addEventListener('click', event => {
+    // If the clicked element is not a child of #menulist and is not itself #menuEl..
+    if (menuOpen===true && event.target.id != 'menuel'&&event.target.closest('#menulist') === null) {
+        closeMenu();
+        console.log(menuOpen,"fired");
+    }
+},true);
+
+function themeLevelSet(){
+    localStorage.setItem("theme", theme.toString());
+    localStorage.setItem("level", level.toString());
+    // level set 
+    for(let i=0; i<levels.length; i++) {
+        if(i===level) {
+            document.querySelector(`#level${i+1}`).style.display = 'inline-block';
+            let hearts=``;
+            attempt=6-level;
+            for(let j=0; j<attempt; j++) {
+                hearts+=`<i class="fa-solid fa-heart" id="heart${j+1}"></i>`
+            }   
+            attemptEl.innerHTML=hearts;
+        }
+        else
+            document.querySelector(`#level${i+1}`).style.display = 'none';
+    }
+    // theme set
+    for(let i=0; i<themes.length; i++) {
+        if(i===theme) {
+            theme=i;
+            document.querySelector(`#theme${i+1}`).style.display ='inline-block';
+        }
+        else
+            document.querySelector(`#theme${i+1}`).style.display ='none';
+    }
+}
 
 function randomImageSet(){
     let arr= [];
     let imgInGame =[];
+    themeLevelSet();
     while(arr.length < 6){
-        let r = (Math.floor(Math.random() * 13))+(14*theme);
+        let r =Math.floor(Math.random() * (images[theme].length-1));
         if(arr.indexOf(r) === -1) 
         {
             arr.push(r);
-            imgInGame.push(images[r]);
+            imgInGame.push(images[theme][r]);
         }
     }
     backs.forEach(back=>{
-        back.src=images[13+(14*theme)];       
-    });
+        back.src=images[theme][images[theme].length-1];});
     for(let i=0; i<6;i++)
     {
         fronts[i].src=imgInGame[i];
@@ -120,8 +159,7 @@ function resetBoard(){
         setTimeout(messagePass,1000);
     }
 }
-
-
+resetBoard();
 function newGame()
 {
     resetBoard();
@@ -130,14 +168,15 @@ function newGame()
     setTimeout(shuffle,700);
 }
 
-
 levels.forEach(level=> level.addEventListener('click',levelSetup));
 
 function levelSetup() {
     for(let i=0; i<levels.length; i++) {
         if(levels[i]===this) {
             document.querySelector(`#level${i+1}`).style.display = 'inline-block';
-            attempt=6-i;
+            let attempt=6-i;
+            level=i;
+            // themeLevelSet();
             let hearts=``;
             for(let j=0; j<attempt; j++) {
                 hearts+=`<i class="fa-solid fa-heart" id="heart${j+1}"></i>`
@@ -150,13 +189,13 @@ function levelSetup() {
     newGame();
 }
 
-
 themes.forEach(theme=> theme.addEventListener('click',themeSetup));
 
 function themeSetup() {
     for(let i=0; i<themes.length; i++) {
         if(themes[i]===this) {
             theme=i;
+            themeLevelSet();
             document.querySelector(`#theme${i+1}`).style.display ='inline-block';
         }
         else
@@ -229,5 +268,6 @@ newGameBtn.addEventListener('click',()=>{
     window.location.reload();
 });
 newGameMenu.addEventListener('click',()=>{
-    window.location.reload();
+    newGame();
+    closeMenu();
 });
