@@ -5,7 +5,10 @@
 }
 body{
     font-family: Calibri, 'Trebuchet MS', Helvetica, sans-serif;
-    background-color:rgb(143, 204, 253) ;
+    background-color:rgba(143, 188, 235, 1);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1008%26quot%3b)' fill='none'%3e%3cpath d='M 0%2c265 C 57.6%2c225.2 172.8%2c81.4 288%2c66 C 403.2%2c50.6 460.8%2c174.8 576%2c188 C 691.2%2c201.2 748.8%2c136.2 864%2c132 C 979.2%2c127.8 1036.8%2c187.4 1152%2c167 C 1267.2%2c146.6 1382.4%2c57.4 1440%2c30L1440 560L0 560z' fill='rgba(105%2c 164%2c 227%2c 1)'%3e%3c/path%3e%3cpath d='M 0%2c454 C 57.6%2c435.8 172.8%2c342.8 288%2c363 C 403.2%2c383.2 460.8%2c569 576%2c555 C 691.2%2c541 748.8%2c314.2 864%2c293 C 979.2%2c271.8 1036.8%2c427.4 1152%2c449 C 1267.2%2c470.6 1382.4%2c410.6 1440%2c401L1440 560L0 560z' fill='rgba(143%2c 188%2c 235%2c 1)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1008'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .uppersection{
     display:flex;
