@@ -17,50 +17,50 @@ const menuList=document.querySelector('#menulist');
 let level=+(localStorage.getItem('level')),score=0,theme=+(localStorage.getItem('theme'));
 let attempt=6-level;
 const images=[
-    ["images/sunnyleone.jpg",
-     "images/disha.jpg",
-     "images/katrina.jpg",
-     "images/kiara.jpg",
-     "images/kiara2.jpg",
-     "images/tamannah.jpg",
-     "images/nora1.jpg",
-     "images/nora2.jpg",
-     "images/rashmika.jpg",
-     "images/rashmika2.jpg",
-     "images/jacquie1.jpg",
-     "images/jacquie2.jpg",
-     "images/shraddha.jpg",
-     "images/cover.jpg"],
+    ["images/actress/sunnyleone.jpg",
+     "images/actress/disha.jpg",
+     "images/actress/katrina.jpg",
+     "images/actress/kiara.jpg",
+     "images/actress/kiara2.jpg",
+     "images/actress/tamannah.jpg",
+     "images/actress/nora1.jpg",
+     "images/actress/nora2.jpg",
+     "images/actress/rashmika.jpg",
+     "images/actress/rashmika2.jpg",
+     "images/actress/jacquie1.jpg",
+     "images/actress/jacquie2.jpg",
+     "images/actress/shraddha.jpg",
+     "images/actress/cover.jpg"],
      // next theme image set
-     ["images/antman.jpg",
-     "images/batman.jpg",
-     "images/blackwidow.jpg",
-     "images/bpanther.jpg",
-     "images/drstrange.jpg",
-     "images/hulk.jpg",
-     "images/ironman.jpg",
-     "images/spiderman.jpg",
-     "images/superman.jpg",
-     "images/thor.jpg",
-     "images/captainamerica.png",
-     "images/wonderwoman.jpg",
-     "images/captainamerica.png",
-     "images/herocover.jpg"],
+    ["images/hero/antman.jpg",
+     "images/hero/batman.jpg",
+     "images/hero/blackwidow.jpg",
+     "images/hero/bpanther.jpg",
+     "images/hero/drstrange.jpg",
+     "images/hero/hulk.jpg",
+     "images/hero/ironman.jpg",
+     "images/hero/spiderman.jpg",
+     "images/hero/superman.jpg",
+     "images/hero/thor.jpg",
+     "images/hero/captainamerica.png",
+     "images/hero/wonderwoman.jpg",
+     "images/hero/captainamerica.png",
+     "images/hero/herocover.jpg"],
      // next  theme image set 
-     ["images/antman.jpg",
-     "images/batman.jpg",
-     "images/blackwidow.jpg",
-     "images/bpanther.jpg",
-     "images/drstrange.jpg",
-     "images/hulk.jpg",
-     "images/ironman.jpg",
-     "images/spiderman.jpg",
-     "images/superman.jpg",
-     "images/thor.jpg",
-     "images/captainamerica.png",
-     "images/wonderwoman.jpg",
-     "images/captainamerica.png",
-     "images/herocover.jpg"]
+    ["images/hero/antman.jpg",
+     "images/hero/batman.jpg",
+     "images/hero/blackwidow.jpg",
+     "images/hero/bpanther.jpg",
+     "images/hero/drstrange.jpg",
+     "images/hero/hulk.jpg",
+     "images/hero/ironman.jpg",
+     "images/hero/spiderman.jpg",
+     "images/hero/superman.jpg",
+     "images/hero/thor.jpg",
+     "images/hero/captainamerica.png",
+     "images/hero/wonderwoman.jpg",
+     "images/hero/captainamerica.png",
+     "images/hero/herocover.jpg"]
  ];
 let menuOpen=false;
 menuEl.addEventListener('click', function()
@@ -256,11 +256,11 @@ function messagePass(){
     newGameBtn.style.display='initial';
     if(score===6) 
     {
-        attemptEl.innerHTML =`<p>YOU WIN !!!`;
+        attemptEl.innerHTML =`<p class="animate__animated animate__rubberBand">YOU WIN !!!</p>`;
         msgImg.src='images/gif/happy.gif';
         return;
     }  
-    attemptEl.innerHTML =`<p>GAME OVER!</p>`;
+    attemptEl.innerHTML =`<p class="animate__animated animate__hinge">GAME OVER!</p>`;
     msgImg.src='images/gif/msgimg.gif';
 }
 

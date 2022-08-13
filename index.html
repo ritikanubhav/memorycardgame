@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Card Game</title>
     <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://kit.fontawesome.com/b824f1f94d.js" crossorigin="anonymous"></script>
@@ -31,11 +35,11 @@
             </div>
         </div>
         <div class="gamezone">
-            <h1 id="title">MEMORY CARD GAME</h1>
-            <div class="lives"  id="attemptel"></div>
+            <h1 id="title" class="animate__animated animate__tada">MEMORY CARD GAME</h1>
+            <div class="lives animate__animated animate__heartBeat" id="attemptel"></div>
         </div>
     </div>
-    <div class="gamezone lowersection">
+    <div class="gamezone lowersection animate__animated animate__headShake">
         <section id ="gameel" class="memory-card-game">
             <div class="card" data-framework="1">
                 <img class="front" alt="unknown_card"/>
@@ -89,7 +93,7 @@
     </div>
     <div class="message">
         <img id="msgimg" src=""/>
-        <button id="newgamebtn">NEW GAME</button>
+        <button id="newgamebtn" class="animate__animated animate__tada">NEW GAME</button>
     </div>
 </body>
 </html>
