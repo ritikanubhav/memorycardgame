@@ -170,7 +170,7 @@ resetBoard();
 
 function newGame()
 {
-    // loadEl.style.display='inline-block';
+    loadEl.style.display='inline-block';
     resetBoard();
     cards.forEach(card => card.addEventListener('click',flipcard));
     cards.forEach(card => card.classList.remove('flip'));
@@ -285,6 +285,6 @@ newGameMenu.addEventListener('click',()=>{
 });
 
 // loader disappear after loading is complete
-window.onload = (event) => {
+window.onload = () => {
     loadEl.style.display='none';
   };
