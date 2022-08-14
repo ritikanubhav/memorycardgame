@@ -14,6 +14,7 @@ const gameEl=document.querySelector('#gameel');
 const msgImg=document.querySelector('#msgimg');
 const menuEl=document.querySelector('#menuel');
 const menuList=document.querySelector('#menulist');
+const loadEl=document.querySelector('#loaderEl');
 let level=+(localStorage.getItem('level')),score=0,theme=+(localStorage.getItem('theme'));
 let attempt=6-level;
 const images=[
@@ -84,6 +85,9 @@ function openMenu(){
     menuList.style= `transform:translate(0%)`;
     menuList.style.transition='all .5s';
 }
+
+// if menu is open then click at any empty space to close the menu as well as you can click cross button-->
+
 document.addEventListener('click', event => {
     // If the clicked element is not a child of #menulist and is not itself #menuEl..
     if (menuOpen===true && event.target.id != 'menuel'&&event.target.closest('#menulist') === null) {
@@ -91,6 +95,9 @@ document.addEventListener('click', event => {
         console.log(menuOpen,"fired");
     }
 },true);
+
+// below function is using local storage to remember what level and theme you last played 
+// and set the new game to that level and theme on opening the app
 
 function themeLevelSet(){
     localStorage.setItem("theme", theme.toString());
@@ -119,13 +126,13 @@ function themeLevelSet(){
             document.querySelector(`#theme${i+1}`).style.display ='none';
     }
 }
-
+// images set and loading-->
 function randomImageSet(){
     let arr= [];
     let imgInGame =[];
     themeLevelSet();
     while(arr.length < 6){
-        let r =Math.floor(Math.random() * (images[theme].length-1));
+        let r =Math.floor(Math.random() * (images[theme].length-1));//random
         if(arr.indexOf(r) === -1) 
         {
             arr.push(r);
@@ -160,12 +167,17 @@ function resetBoard(){
     }
 }
 resetBoard();
+
 function newGame()
 {
+    // loadEl.style.display='inline-block';
     resetBoard();
     cards.forEach(card => card.addEventListener('click',flipcard));
     cards.forEach(card => card.classList.remove('flip'));
     setTimeout(shuffle,700);
+    setTimeout(function() {
+        loadEl.style.display='none';
+    },1000)
 }
 
 levels.forEach(level=> level.addEventListener('click',levelSetup));
@@ -260,7 +272,7 @@ function messagePass(){
         msgImg.src='images/gif/happy.gif';
         return;
     }  
-    attemptEl.innerHTML =`<p class="animate__animated animate__hinge">GAME OVER!</p>`;
+    attemptEl.innerHTML =`<p class="animate__animated animate__zoomInDown">GAME OVER!</p>`;
     msgImg.src='images/gif/msgimg.gif';
 }
 
@@ -271,3 +283,8 @@ newGameMenu.addEventListener('click',()=>{
     newGame();
     closeMenu();
 });
+
+// loader disappear after loading is complete
+window.onload = (event) => {
+    loadEl.style.display='none';
+  };
