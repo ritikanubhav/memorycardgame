@@ -278,8 +278,7 @@ newGameBtn.addEventListener('click',()=>{
     window.location.reload();
 });
 newGameMenu.addEventListener('click',()=>{
-    newGame();
-    closeMenu();
+    window.location.reload();
 });
 
 // loader disappear after loading is complete
