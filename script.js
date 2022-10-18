@@ -16,7 +16,7 @@ const celebrateImg=document.querySelector('#celebrate');
 const menuEl=document.querySelector('#menuel');
 const menuList=document.querySelector('#menulist');
 const loadEl=document.querySelector('#loaderEl');
-let level=+(localStorage.getItem('level')),score=6,theme=+(localStorage.getItem('theme'));
+let level=+(localStorage.getItem('level')),score=0,theme=+(localStorage.getItem('theme'));
 let attempt=6-level;
 const images=[
     ["images/actress/disha.jpg",
