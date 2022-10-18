@@ -12,10 +12,11 @@ const newGameBtn=document.querySelector('#newgamebtn');
 const newGameMenu=document.querySelector('#newgamemenu');
 const gameEl=document.querySelector('#gameel');
 const msgImg=document.querySelector('#msgimg');
+const celebrateImg=document.querySelector('#celebrate');
 const menuEl=document.querySelector('#menuel');
 const menuList=document.querySelector('#menulist');
 const loadEl=document.querySelector('#loaderEl');
-let level=+(localStorage.getItem('level')),score=0,theme=+(localStorage.getItem('theme'));
+let level=+(localStorage.getItem('level')),score=6,theme=+(localStorage.getItem('theme'));
 let attempt=6-level;
 const images=[
     ["images/actress/disha.jpg",
@@ -268,6 +269,8 @@ function messagePass(){
     {
         attemptEl.innerHTML =`<p class="animate__animated animate__rubberBand">YOU WIN !!!</p>`;
         msgImg.src='images/gif/happy.gif';
+        celebrateImg.src='images/gif/celebrate.gif';
+        celebrateImg.style.display="initial";
         return;
     }  
     attemptEl.innerHTML =`<p class="animate__animated animate__zoomInDown">GAME OVER!</p>`;

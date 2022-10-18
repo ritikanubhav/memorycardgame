@@ -10,17 +10,23 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
+#celebrate{
+    display:none;
+    position: absolute;
+    width:100vw;
+    height:100vh;
+}
 .uppersection{
     display:flex;
 }
 .gamezone {
     display:flex;
     margin:auto;
-    position:relative;
     flex-direction: column;
 }
 .lowersection{
     height:82vh;
+    position:relative;
 }
 .loader {
     position: fixed; /* or absolute */
