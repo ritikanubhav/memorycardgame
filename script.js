@@ -19,21 +19,7 @@ const loadEl=document.querySelector('#loaderEl');
 let level=+(localStorage.getItem('level')),score=0,theme=+(localStorage.getItem('theme'));
 let attempt=6-level;
 const images=[
-    ["images/actress/disha.jpg",
-     "images/actress/katrina.jpg",
-     "images/actress/kiara.jpg",
-     "images/actress/tara.jpeg",
-     "images/actress/tamannah.jpg",
-     "images/actress/nora.jpg",
-     "images/actress/pooja.jpg",
-     "images/actress/rashmika.jpg",
-     "images/actress/mouni.jpg",
-     "images/actress/jacquie.jpg",
-     "images/actress/alia.jpeg",
-     "images/actress/shraddha.jpg",
-     "images/actress/mrunal.jpg",
-     "images/actress/cover.jpg"],
-     // next theme image set
+    
     ["images/pokemons/p1.jpg",
      "images/pokemons/p2.webp",
      "images/pokemons/p3.jpg",
@@ -45,7 +31,7 @@ const images=[
      "images/pokemons/p9.webp",
      "images/pokemons/p10.jpg",
      "images/pokemons/pokemoncover.jpg"],
-     // next  theme image set 
+    // next  theme image set 
     ["images/hero/antman.jpg",
      "images/hero/aquaman.jpg",
      "images/hero/blackwidow.jpg",
@@ -60,7 +46,22 @@ const images=[
      "images/hero/wonderwoman.jpg",
      "images/hero/flash.jpg",
      "images/hero/krish.jpg",
-     "images/hero/herocover.jpg"]
+     "images/hero/herocover.jpg"],
+     // next  theme image set 
+     ["images/actress/disha.jpg",
+     "images/actress/katrina.jpg",
+     "images/actress/kiara.jpg",
+     "images/actress/tara.jpeg",
+     "images/actress/tamannah.jpg",
+     "images/actress/nora.jpg",
+     "images/actress/pooja.jpg",
+     "images/actress/rashmika.jpg",
+     "images/actress/mouni.jpg",
+     "images/actress/jacquie.jpg",
+     "images/actress/alia.jpeg",
+     "images/actress/shraddha.jpg",
+     "images/actress/mrunal.jpg",
+     "images/actress/cover.jpg"],
  ];
 let menuOpen=false;
 menuEl.addEventListener('click', function()
